@@ -1,0 +1,56 @@
+@use "../abstracts/functions"
+@use "../abstracts/mixins"
+@use "sass:math"
+
+$columns: 12
+$gutter: functions.em(20)
+
+@function grid($grid-columns, $offset: false)
+    $width: math.div($grid-columns,$columns) * 100 + "%"
+    $result: calc(#{$width} - #{$gutter})
+    @if $offset == offset
+        $gutter: math.div($gutter,2)
+        $result: calc(#{$width} + #{$gutter})
+    @return $result
+
+@for $var from 1 through $columns
+    .grid-#{$var}
+        width: grid($var)
+
+@mixin grid-structure
+    float: left
+    margin-right: functions.em(1)
+    margin-left: math.div($gutter, 2)
+    margin-right: math.div($gutter, 2)
+    @include mixins.device("small")
+        width: 100%
+        float: none
+        margin-right: 0
+        margin-left: 0
+
+[class^="grid-"]
+    @include grid-structure
+
+@for $var from 1 through $columns
+    .offset-#{$var}
+        margin-left: grid($var, offset)
+        @extend %offset
+
+@include mixins.device("small")
+    %offset
+        margin-left: 0
+
+@mixin container
+    max-width: map-get(mixins.$breakpoints, "large")
+    margin: 0 auto
+    position: relative
+    @include mixins.device("medium")
+        max-width: map-get(mixins.$breakpoints, "medium")
+    @include mixins.device("small")
+        max-width: map-get(mixins.$breakpoints, "small")
+        margin-left: functions.em(10)
+        margin-right: functions.em(10)
+    @include mixins.clearfix
+
+.container
+    @include container

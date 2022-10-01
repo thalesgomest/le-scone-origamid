@@ -1,0 +1,14 @@
+@use "abstracts/variables"
+@use "abstracts/functions"
+@use "abstracts/mixins"
+@use "base/reset"
+@use "base/global"
+@use "layout/grid"
+
+h1
+    color: variables.$primary-color
+    font-size: functions.em(16)
+    @include mixins.device("small")
+        color: red
+    @include mixins.device("medium")
+        color: blue

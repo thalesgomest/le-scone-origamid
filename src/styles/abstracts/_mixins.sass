@@ -1,0 +1,18 @@
+$breakpoints: ("small": 480px, "medium": 760px, "large": 1200px)
+
+@mixin device($size)
+    @if $size == "large"
+        @media screen and (min-width: map-get($breakpoints, "large"))
+            @content
+    @else if $size == "medium"
+        @media screen and (min-width: map-get($breakpoints, "medium")) and (max-width: map-get($breakpoints, "large") - 1)
+            @content
+    @else if $size == "small"
+        @media screen and (max-width: map-get($breakpoints, "medium") - 1)
+            @content
+
+@mixin clearfix
+    &::after, &::before
+        content: ""
+        display: table
+        clear: both
