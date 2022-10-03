@@ -48,9 +48,21 @@ $gutter: functions.em(20)
         max-width: map-get(mixins.$breakpoints, "medium")
     @include mixins.device("small")
         max-width: map-get(mixins.$breakpoints, "small")
-        margin-left: functions.em(10)
-        margin-right: functions.em(10)
+        padding-left: functions.em(10)
+        padding-right: functions.em(10)
     @include mixins.clearfix
 
 .container
     @include container
+
+@mixin row
+    position: relative
+    margin-left: math.div(-$gutter, 2)
+    margin-right: math.div(-$gutter, 2)
+    @include mixins.device("small")
+        margin-left: 0
+        margin-right: 0
+    @include mixins.clearfix
+
+.row
+    @include row

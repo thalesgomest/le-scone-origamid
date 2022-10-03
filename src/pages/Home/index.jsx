@@ -1,8 +1,12 @@
 function Home() {
 	return (
-		<>
-			<h1>REACT + SASS: Le Scone</h1>
-		</>
+		<div className="container">
+			<div className="grid-5"></div>
+			<div className="grid-7"></div>
+			<div className="grid-4"></div>
+			<div className="grid-4"></div>
+			<div className="grid-4"></div>
+		</div>
 	);
 }
 
