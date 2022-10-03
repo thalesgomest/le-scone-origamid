@@ -1,3 +1,39 @@
+@use "../abstracts/variables"
+@use "../abstracts/mixins"
+@use "../abstracts/functions"
+@use "../base/typography"
+
 // Box-sizing
 *, *::before, *::after
     box-sizing: border-box
+
+body
+    background: variables.$primary-color
+    border: 10px solid variables.$secondary-color
+    color: variables.$primary-text-color
+    @include mixins.device("small")
+        border: none
+
+img
+    display: block
+    max-width: 100%
+
+p
+    @include typography.primary-font(18)
+
+.title
+    @include typography.primary-font(18)
+    text-transform: uppercase
+    color: variables.$primary-text-color
+    @include mixins.device("small")
+        margin-bottom: functions.em(40)
+    &::after
+        content: ""
+        display: block
+        background: variables.$primary-text-color
+        width: 70%
+        float: right
+        height: 2px
+        margin-top: functions.em(12)
+        @include mixins.device("medium")
+            width: 60%

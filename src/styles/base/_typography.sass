@@ -1,0 +1,19 @@
+@use "../abstracts/functions"
+
+$primary-font: "PT Mono", monospace
+$secondary-font: 'Aref Ruqaa', serif
+
+@mixin primary-font($size)
+    font-family: $primary-font
+    @if $size == 18
+        font-size: functions.em(18)
+        line-height: functions.em(30,18)
+
+@mixin secondary-font($size)
+    font-family: $secondary-font
+    @if $size == 18
+        font-size: functions.em(18)
+        line-height: functions.em(30,18)
+    @else if $size == 24
+        font-size: functions.em(24)
+        line-height: functions.em(30,24)
