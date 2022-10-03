@@ -96,7 +96,9 @@ function Home() {
 						</div>
 						<label>Mensagem</label>
 						<textarea></textarea>
-						<button type="submit">Enviar</button>
+						<button className="button" type="submit">
+							Enviar
+						</button>
 						<div className="contact-info">
 							<p>contato@lescone.com ////</p>
 							<p>+55 099 99999-9999 //// </p>
@@ -108,7 +110,7 @@ function Home() {
 				</div>
 			</section>
 			<footer>
-				<div className="container">
+				<div className="container information">
 					<p>Le Scone © 1989 -2022. Alguns direitos reservados</p>
 					<a
 						href="https://github.com/thalesgomest/le-scone-origamid"

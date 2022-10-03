@@ -43,6 +43,7 @@ $gutter: functions.em(20)
 
 @mixin container
     max-width: map-get(mixins.$breakpoints, "large")
+    min-width: 420px
     margin: 0 auto
     position: relative
     @include mixins.device("medium")
